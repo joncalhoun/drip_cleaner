@@ -16,7 +16,29 @@ This program is a remedy to that problem. Users are still welcome to sign up wit
 
 ## How to use it
 
-TODO(jon): Fill this in
+```
+$ go get -u github.com/joncalhoun/drip_cleaner
+
+# navigate to the drip_cleaner dir for the disposable.txt file or create
+# your own file wherever you run drip_cleaner with the same name
+$ cd $GOPATH/src/github.com/joncalhoun/drip_cleaner
+
+# run it
+$ drip_cleaner -id=<drip_account_id> -key=<drip_api_key> -agent="Your App Name (www.yourapp.com)" -delete
+```
+
+Your Drip account ID can be found in your URL after logging in. Eg: `https://www.getdrip.com/<ACCOUNT_ID>/settings/general`. It can also be found on the settings page defined in the URL above, but if you get to that page you've already seen your account ID so grab it from either spot.
+
+*If you have multiple accounts, be sure to choose the correct one before getting your account ID.*
+
+Your Drip API key can be found here: <https://www.getdrip.com/user/edit>
+
+I don't believe the `agent` flag is necessary, but the docs always show it in the format of `Your App Name (www.yourapp.com)` so add it if you want.
+
+Finally the `delete` flag tells the program to actually delete subscribers who have disposable email addresses. If you DO NOT provide this flag they will not be deleted and you will instead just get a printout of ids and email addresses.
+
+**NOTE:** *This program will retrieve all of your subscribers, not just active ones, meaning users who you may have unsubscribed with disposable addresses will also be deleted. There are also some comments in the code that can be uncommented and used to batch unsubscribe subscribers with disposable email addresses instead of deleting them.*
+
 
 ## Disclaimer
 
